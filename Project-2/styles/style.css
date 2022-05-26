@@ -1,0 +1,785 @@
+:root {
+    --small-fontsize: 0.8rem;
+    /*#2b7c6b*/
+    --maincolor: #95a09e;
+    --fontcolor: white;
+    --fontfamily: "Poppins", sans-serif;
+  }
+  
+  body {
+    font-size: var(--small-fontsize);
+    font-family: var(--fontfamily);
+    /* position: relative; */
+  }
+  
+  body::-webkit-scrollbar {
+    width: 1vw;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--maincolor);
+    border-radius: 15px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background-color: rgba(207, 207, 207, 0.37);
+    border-radius: 15px;
+  }
+  /*header */
+  header {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .list {
+    display: none;
+    position: absolute;
+    width: 100%;
+  }
+  
+ 
+  .list li a {
+    /* display: block; */
+    color: var(--fontcolor);
+    text-decoration: none;
+    z-index: 1;
+  }
+  
+  .list li a:hover {
+    border-bottom: 1px solid var(--fontcolor);
+    margin-bottom: 2px;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 3vh;
+    right: 3vw;
+    height: 4vh;
+    z-index: 1;
+  }
+  
+  .show {
+    display: block;
+    background-color: var(--maincolor);
+    position: fixed;
+  }
+  .icon {
+    display: none;
+    position: absolute;
+    top: 3vh;
+    left: 3vw;
+    height: 10vh;
+  }
+  /*end of header */
+  
+  /*mainttxt and svg*/
+  
+  
+  .maintxt .btns a {
+    /* display: inline-block; */
+    text-decoration: none;
+    background-color: var(--maincolor);
+    border-radius: 15px;
+    color: var(--fontcolor);
+  }
+  
+  .form {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    width: 60%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.63);
+    color: white;
+  }
+  
+  .showform {
+    display: block;
+  }
+  
+  .inputs {
+    overflow-y: scroll;
+    height: 30vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+  
+  .inputs::-webkit-scrollbar {
+    width: 2vw;
+  }
+  
+  .inputs::-webkit-scrollbar-thumb {
+    background-color: var(--maincolor);
+    border-radius: 15px;
+  }
+  
+  .inputs::-webkit-scrollbar-track {
+    background-color: rgba(190, 189, 189, 0.466);
+    border-radius: 15px;
+    margin-left: 3px;
+  }
+  
+  .inputs::-webkit-scrollbar-track:hover {
+    background-color: rgba(255, 255, 255, 0.507);
+  }
+  
+  form {
+    border: 2px solid var(--maincolor);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #inBox > label {
+    font-weight: var(--small-fontsize);
+  }
+  #inBox > input {
+    outline: none;
+    padding: 1vh;
+    border-radius: 10px;
+  }
+  
+  .sc {
+    border: 2px solid rgb(2, 189, 2);
+    /* border-radius: 12px; */
+  }
+  .er {
+    border: 2px solid rgb(255, 64, 64);
+    /* border-radius: 12px; */
+  }
+  
+  .message {
+    display: none;
+    color: rgb(255, 64, 64);
+  }
+  
+  .checkbox {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin: 5px 0;
+  }
+  
+  /*hide defualt checkbox*/
+  .checkbox > input {
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+  
+  /*create checkbox */
+  
+  .check {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #eee;
+  }
+  
+  .checkbox:hover > input ~ .check {
+    background-color: #ccc;
+  }
+  
+  .checkbox > input:checked ~ .check {
+    background-color: var(--maincolor);
+  }
+  
+  .check::after {
+    content: "*";
+    position: absolute;
+    font-size: 25px;
+    top: -3px;
+    left: 4px;
+    color: black;
+    /* font-weight: var(--semi-bold); */
+    display: none;
+  }
+  
+  .checkbox > input:checked ~ .check::after {
+    display: block;
+  }
+  svg {
+    margin-top: 15vh;
+    height: 250px;
+    width: 350px;
+  }
+  
+  #circontent,
+  #circontent2,
+  #bottomrect,
+  #toprect,
+  #topbar,
+  #circleline1,
+  #circleline2,
+  #circleline3 {
+    fill: var(--maincolor);
+  }
+  
+  #hand,
+  #arm,
+  #circleline1,
+  #circleline2,
+  #circleline3,
+  #circle,
+  #circlefill {
+    animation: hand 2s linear 1s infinite;
+  }
+  
+  @keyframes hand {
+    0% {
+      transform: translate(0px) rotate(0deg);
+    }
+  
+    50% {
+      transform: translate(-6px) rotate(-2deg);
+    }
+  
+    100% {
+      transform: translate(0px) rotate(0deg);
+    }
+  }
+  
+  #circontent,
+  #topline,
+  #topcirc {
+    animation: topcirc 2s linear 1s infinite;
+  }
+  
+  @keyframes topcirc {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateX(-7px);
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  #circontent2 #bottomline,
+  #bottomcirc {
+    animation: bottomcirc 2s linear 1s infinite;
+  }
+  
+  @keyframes bottomcirc {
+    0% {
+      transform: translateX(0);
+    }
+  
+    50% {
+      transform: translateX(7px);
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  /*end of mainttxt and svg*/
+  
+  /*cardscontainer*/
+  
+  .cardscontainer {
+    background-color: var(--maincolor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    /* padding: 0 var(--small-margin); */
+    font-size: 0.5rem;
+    /* font-weight: var(--regular); */
+  }
+  
+  .card {
+    border: 1px solid rgba(128, 128, 128, 0.658);
+    background-color: var(--fontcolor);
+    border-radius: 12px;
+    height: 35vh;
+    max-width: 30vw;
+    flex-basis: 30%;
+    text-align: center;
+    /* padding: var(--big-margin) var(--small-margin) 0 var(--small-margin); */
+    margin-right: var(--small-margin);
+    box-shadow: 10px 10px 25px black;
+    position: relative;
+  }
+  
+  .card > p {
+    margin-top: 2vh;
+  }
+  .card a .material-icons {
+    color: var(--maincolor);
+    position: absolute;
+    top: 2vh;
+    right: 0.8vw;
+  }
+  
+  .card a .material-icons:hover {
+    color: black;
+  }
+  .txt {
+    height: 30vh;
+    text-align: center;
+    color: var(--fontcolor);
+    /* font-weight: var(--extra-light); */
+    /* padding: var(--med-margin); */
+    /* margin-bottom: var(--med-margin); */
+  }
+  
+  .timelinecontainer {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* padding: var(--med-margin) var(--small-margin); */
+  }
+  
+  .timeline {
+    max-width: 90%;
+    /* border: 1px solid black; */
+    list-style: none;
+    position: relative;
+  }
+  
+  .timeline > li {
+    width: 100%;
+    height: 25%;
+    background-color: var(--maincolor);
+    border-radius: 12px;
+    /* margin-bottom: var(--med-margin);
+    padding: var(--med-margin); */
+  }
+  
+  .timeline > li a {
+    height: 5vh;
+    width: 13vw;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    /* padding: var(--small-margin) var(--small-margin) var(--med-margin)
+      var(--small-margin);
+    margin-bottom: var(--small-margin); */
+    border-radius: 12px;
+    text-align: center;
+    float: right;
+    /* font-weight: var(--extra-light); */
+    transition: width 2s;
+    position: relative;
+  }
+  
+  .timeline > li a .material-icons {
+    display: none;
+    position: absolute;
+    top: 1vh;
+    right: 0;
+  }
+  .timeline > li a:hover {
+    /* font-weight: var(--regular); */
+    text-align: left;
+    width: 15vw;
+  }
+  
+  .timeline > li a:hover .material-icons {
+    display: block;
+  }
+  
+  /*tablets 48rem =768px */
+  @media (min-width: 48rem) {
+    :root {
+      --small-fontsize: 1rem;
+      --fontcolor: white;  
+      --fontfamily: "Poppins", sans-serif;
+  
+      /*weights*/
+      --thin: 100;
+      --extra-light: 200;
+      --regular: 400;
+      --semi-bold: 600;
+  
+      /*margins*/
+      --big-margin: 10rem;
+      --med-margin: 6rem;
+      --small-margin: 3rem;
+  
+      /*paddings*/
+      --big-padding: 3rem;
+      --med-padding: 2rem;
+      --small-padding: 1rem;
+    }
+  
+    /*header*/
+  
+    header {
+      position: relative;
+    }
+    .icon {
+      display: block;
+      position: absolute;
+      top: 3vh;
+      left: 3vw;
+      height: 5vh;
+    }
+  
+    .menu {
+      display: none;
+    }
+  
+    .show {
+      display: none;
+    }
+    .list {
+      display: block;
+      position: absolute;
+      top: 3vh;
+      right: 3vw;
+      width: auto;
+    }
+  
+    .list li {
+      display: inline-block;
+      margin: var(--small-padding);
+    }
+    .list li a {
+      color: black;
+    }
+  
+    .list li a:hover {
+      color: var(--maincolor);
+      border-bottom: 1px solid var(--maincolor);
+    }
+  
+    /*end of header*/
+  
+    /*maintxt and svg*/
+    .maintxt {
+      padding: var(--big-margin) var(--big-padding);
+    }
+  
+    .maintxt .btns {
+      margin: var(--big-padding) 0 0 0;
+    }
+  
+    .maintxt .btns a {
+      padding: var(--small-padding);
+    }
+  
+    svg {
+      height: 50vh;
+      width: 40vw;
+      margin: var(--med-margin) var(--small-margin) 0 0;
+    }
+  
+    /* end of maintxt and svg*/
+  
+    .cardscontainer {
+      /* flex-direction: row; */
+      position: relative;
+    }
+  
+    .card {
+      height: 32.5vh;
+      padding: var(--big-padding) var(--small-padding) 0 var(--small-padding);
+      font-size: var(--small-fontsize);
+      font-weight: var(--regular);
+    }
+  
+    @keyframes cards {
+      0% {
+        transform: rotate(0deg) scale(0.5);
+      }
+      100% {
+        transform: rotate(10deg) scale(1);
+        transition: z-index 2s;
+        z-index: 1;
+        position: absolute;
+        top: 10vh;
+        right: 5vw;
+      }
+    }
+    .card1 {
+      position: absolute;
+      top: 15vh;
+      right: 0;
+    }
+  
+    .card2 {
+      position: absolute;
+      top: 15vh;
+      right: 3vw;
+      /* z-index: 1; */
+    }
+  
+    .card3 {
+      position: absolute;
+      top: 15vh;
+      right: 6vw;
+    }
+    .txt {
+      position: absolute;
+      top: 10vh;
+      left: 3vw;
+      right: 40vw;
+      height: 20vh;
+      padding: var(--med-padding) var(--big-padding) 0 var(--small-padding);
+      /* border: 1px solid black; */
+      /* margin: 0; */
+      margin: var(--med-padding) 0 0 0;
+    }
+  
+    /*end of cardscontainer */
+    .timeline {
+      padding: var(--med-padding) var(--small-padding);
+    }
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background-color: black;
+    }
+  
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: 2px;
+      background-color: black;
+    }
+  
+    .timeline > li {
+      width: 50%;
+      margin-bottom: var(--small-padding);
+      padding: var(--small-padding);
+    }
+  
+    .timeline > li a {
+      padding: var(--small-padding) var(--small-padding) var(--med-padding)
+        var(--small-padding);
+      margin-bottom: var(--small-padding);
+      width: 8vw;
+    }
+  
+    .timeline > li a .material-icons {
+      top: 3vh;
+      right: 1vw;
+    }
+  
+    .timeline > li a:hover {
+      width: 10vw;
+    }
+    .timeline > li:nth-child(odd) {
+      float: left;
+      clear: right;
+      transform: translateX(-30px);
+    }
+  
+    .timeline > li:nth-child(even) {
+      float: right;
+      clear: left;
+      transform: translateX(30px);
+    }
+  
+    .timeline > li:nth-child(odd)::before {
+      right: 0;
+      top: 0;
+      transform: translateX(40px);
+    }
+  
+    .timeline > li:nth-child(even)::before {
+      left: 0;
+      top: 0;
+      transform: translateX(-40px);
+    }
+  
+    /*signup  form */
+  
+    .inputs {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .form {
+      padding: var(--small-padding);
+      width: 70%;
+    }
+  
+    #inBox {
+      margin-right: var(--small-padding);
+    }
+    #inBox > input {
+      margin: var(--small-padding) 0;
+    }
+    .message {
+      margin-left: var(--small-padding);
+    }
+  }
+  
+  /*desktops 62rem =992px*/
+  @media (min-width: 62rem) {
+    :root{
+        --small-fontsize: 0.8rem;
+        /*#2b7c6b*/
+        --maincolor: #95a09e;
+        --fontcolor: white;
+        --fontfamily: "Poppins", sans-serif;
+    /*weights*/
+     --thin: 100;
+    --extra-light: 200;
+    --regular: 400;
+    --semi-bold: 600;
+  
+    /*margins*/
+     --big-margin: 3rem;
+    --med-margin: 1.5rem;
+    --small-margin: 0.5rem; 
+    }
+    body {
+      font-size: var(--small-fontsize);
+    }
+  
+    /*header*/
+    .icon {
+      height: 10vh;
+    }
+
+    .list li {
+        margin: var(--med-margin) var(--small-margin);
+        list-style: none;
+    }
+    .list li:hover{
+        font-weight: var(--semi-bold);
+    }
+
+    /*maintxt and svg*/
+    .maintxt {
+      margin-top: var(--small-margin);
+      padding: 40vh 5vw 0 8vw;
+    }
+    
+    .maintxt .btns {
+      margin-top: var(--big-margin);
+      padding-left:var(--med-margin) ;
+    }
+  
+    .maintxt .btns a {
+      padding: 2vh 3vw;
+      margin-left: var(--small-margin);
+      border-radius: 25px;
+    }
+  
+    svg {
+      height: 70vh;
+      width: 50vw;
+      margin-top: 18vh;
+      padding-right:var(--med-margin) ;
+    }
+    /*end of maintxt and svg*/
+  
+    /*cardscontainer*/
+    .cardscontainer {
+      flex-direction: row;
+      position: relative;
+    }
+  
+    .cards {
+      padding: 0;
+    }
+  
+    .card {
+      height: 60vh;
+      max-width: 20vw;
+      flex-basis: 20%;
+      padding: var(--big-padding) var(--small-padding) 0 var(--small-padding);
+      margin-top: var(--small-padding);
+      font-size: var(--small-fontsize);
+      font-weight: var(--regular);
+    }
+  
+    .card1 {
+      position: absolute;
+      top: 5vh;
+      right: 0;
+    }
+  
+    .card2 {
+      position: absolute;
+      top: 5vh;
+      right: 7vw;
+      /* z-index: 1; */
+    }
+  
+    .card3 {
+      position: absolute;
+      top: 5vh;
+      right: 15vw;
+    }
+    .txt {
+      position: absolute;
+      top: 10vh;
+      left: 3vw;
+      right: 40vw;
+      height: 20vh;
+      padding: 0;
+      /* border: 1px solid black; */
+      /* margin: 0; */
+      margin: var(--big-padding) 0 0 0;
+    }
+  
+    #inBox {
+      margin: 0;
+    }
+  
+    .message {
+      margin: 0;
+    }
+    .form {
+      width: 60%;
+    }
+  }
+  
+  @media (min-width: 62rem) and (orientation: portrait) {
+    .icon {
+      height: 5vh;
+    }
+  
+    .maintxt {
+      padding: 25vh 0 0 5vw;
+    }
+  
+    svg {
+      height: 50vh;
+      width: 40vw;
+      padding: 0;
+    }
+  
+    .card {
+      height: 27.5vh;
+    }
+  
+    .txt {
+      position: absolute;
+      top: 8vh;
+      padding: var(--med-padding);
+    }
+  }
+  

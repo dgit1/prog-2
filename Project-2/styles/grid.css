@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 45vh 60vh 100vh auto auto;
+  grid-template-areas:
+    "header"
+    "maintxt"
+    "svg"
+    "cardscontainer"
+    "timeline"
+    "form";
+  overflow: hidden;
+}
+header {
+  grid-area: header;
+}
+
+.maintxt {
+  grid-area: maintxt;
+  /* border: 2px solid black; */
+}
+
+.svg {
+  grid-area: svg;
+  /* border: 2px solid black; */
+}
+
+.cardscontainer {
+  grid-area: cardscontainer;
+  /* border: 2px solid black; */
+}
+
+.timelinecontainer {
+  grid-area: timeline;
+  /* border: 2px solid black; */
+}
+
+.form {
+  grid-area: form;
+}
+/*tablets 768px*/
+@media (min-width: 48rem) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 65vh 65vh auto auto;
+    grid-template-areas:
+      "header header"
+      "maintxt svg"
+      "cardscontainer cardscontainer"
+      "timeline timeline "
+      "form form";
+  }
+}
+/*desktops =992px*/
+@media (min-width: 62rem) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 100vh 75vh auto auto;
+    grid-template-areas:
+      "header header header header"
+      "maintxt maintxt svg svg"
+      "cardscontainer cardscontainer cardscontainer cardscontainer"
+      "timeline timeline timeline timeline"
+      "form form form form";
+  }
+}
+
+@media (min-width: 62rem) and (orientation: portrait) {
+  .container {
+    grid-template-rows: 1fr 60vh 45vh auto;
+  }
+}
